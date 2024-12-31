@@ -38,7 +38,7 @@ def create_sphere(radius, location, material=None):
     if material:
         sphere.data.materials.append(material)
     return sphere
-
+# UNUSED
 def flip_chip(chip_obj):
     print("flip_chip function called.")
     if not chip_obj:
@@ -270,6 +270,7 @@ def add_cable(material_list):
     cable_obj.rotation_euler[0] = math.radians(90)
     
 def create_shapes(config, material_list):
+    #create chips and interposer
     if 'chips' in config:
         for cube_config in config['chips']:
        # cube_config = config['chip']
@@ -295,7 +296,7 @@ def create_shapes(config, material_list):
                 add_bumps(cube_config, cube_obj,material_list, chip_vias)
 
     
-
+    #create substrate
     if 'substrate' in config:
         for subst_config in config['substrate']:
             
@@ -318,7 +319,7 @@ def load_config(file_path):
     return config
 
 if __name__ == "__main__":
-    # Handle arguments properly
+    # Handle arguments 
     argv = sys.argv
     if '--' in argv:
         argv = argv[argv.index('--') + 1:]  # Get arguments after '--'
@@ -334,7 +335,7 @@ if __name__ == "__main__":
     config = load_config(config_file)
 
 
-    # Manual material creation for color and transparency
+    # Manual material creation for color (eventually receive RGB) and transparency (final param)
     prism_material = create_material("PrismMaterial", (0.8, 0.2, 0.2, 1), 50) # Red  with 50% opacity
     shape_material = create_material("ShapeMaterial", (0.2, 0.8, 0.2, 1), 100) # Green with 30% opacity
     teal= create_material("teal", ((58/255),(154/255),(145/255),1), 50)
