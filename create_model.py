@@ -308,8 +308,8 @@ def create_shapes(config, material_list):
             subst_obj=create_cube(size, location, name, material)
             add_bumps(subst_config, subst_obj,material_list)
     
-    add_chiplet(material_list)
-    add_cable(material_list)
+    #add_chiplet(material_list)
+    #add_cable(material_list)
 
 def load_config(file_path):
     # Load the configuration from the YAML file
@@ -339,7 +339,7 @@ if __name__ == "__main__":
     shape_material = create_material("ShapeMaterial", (0.2, 0.8, 0.2, 1), 100) # Green with 30% opacity
     teal= create_material("teal", ((58/255),(154/255),(145/255),1), 50)
     blue = create_material("blue", ((3/255),(168/255),(248/255),1), 35)
-    lightgray = create_material("lightgray", ((210/255),(210/255),(210/255),1), 35)
+    lightgray = create_material("lightgray", ((210/255),(210/255),(210/255),1), 25)
     yellow = create_material("yellow", ((248/255),(170/255),(24/255),1), 80)
     lightgreen = create_material("lightgreen", ((52/255),(193/255),(28/255),1), 50)
     material_list = [prism_material, shape_material, teal, blue, lightgray, yellow, lightgreen]
@@ -348,5 +348,5 @@ if __name__ == "__main__":
     create_shapes(config, material_list)
 
     # save the file
-    bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\hrith\OneDrive\Documents\Python Scripts\models\new.blend")
+    bpy.ops.wm.save_as_mainfile(filepath=r"C:\Users\hrith\OneDrive\Documents\Python Scripts\chip_model_creation\models\new.blend")
     print("Blender file saved.")
